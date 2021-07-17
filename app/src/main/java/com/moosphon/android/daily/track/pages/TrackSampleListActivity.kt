@@ -98,7 +98,7 @@ class TrackSampleListActivity : AppCompatActivity(), ITrackNode {
 
         fun bind(data: SimplePostItem) {
             postInfo = data
-            itemView.trackModel = this
+            this.itemView.trackModel = this
             postImage?.setBackgroundColor(Color.parseColor(data.color))
             postTextView?.setText(data.name)
 
@@ -108,6 +108,12 @@ class TrackSampleListActivity : AppCompatActivity(), ITrackNode {
 //                val intent = Intent(context, TrackSampleDetailsActivity::class.java)
 //                context.startActivity(intent)
 
+//                val intent = Intent()
+//                intent.setHiredTrackNode(this)
+            }
+
+            postImage?.setOnClickListener {
+                postImage!!.trackEvent("click_poster")
             }
         }
 

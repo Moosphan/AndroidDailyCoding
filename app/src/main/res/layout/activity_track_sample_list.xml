@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".track.pages.TrackSampleListActivity">
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:title="商品列表"/>
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        app:title="商品列表"/>-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/goodsRecyclerView"
         android:layout_width="match_parent"
