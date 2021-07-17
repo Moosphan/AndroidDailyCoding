@@ -1,0 +1,6 @@
+include ':statistics-track'
+//include ':gradle-plugin'// gradle系列专题基础训练
+include ':gradle-topic'
+// 壳工程
+include ':app'
+rootProject.name = "AndroidDailyLearning"
