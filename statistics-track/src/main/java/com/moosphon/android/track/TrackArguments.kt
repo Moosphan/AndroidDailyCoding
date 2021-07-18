@@ -21,8 +21,25 @@ class TrackArguments {
         trackArguments.put(key, value)
     }
 
+    fun putAll(extras: Map<String, Any>) {
+        trackArguments.putAll(extras)
+    }
+
     fun getArguments(): Map<String, Any> {
         return trackArguments
+    }
+
+    fun removeArgument(key: String) {
+        if (trackArguments.containsKey(key)) {
+            trackArguments.remove(key)
+        }
+    }
+
+    fun replaceArgumentKeyWithSameValue(newKey: String, oldKey: String, value: Any) {
+        if (trackArguments.containsKey(oldKey)) {
+            trackArguments.put(newKey, value)
+            trackArguments.remove(oldKey)
+        }
     }
 
     override fun toString(): String {

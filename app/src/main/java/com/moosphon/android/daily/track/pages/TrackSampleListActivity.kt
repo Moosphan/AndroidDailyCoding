@@ -2,18 +2,25 @@ package com.moosphon.android.daily.track.pages
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.moosphon.android.daily.R
 import com.moosphon.android.daily.track.constant.TrackConstant
 import com.moosphon.android.track.*
+import com.moosphon.android.track.api.IDataTrack
+import com.moosphon.android.track.api.IPageTrackNode
+import com.moosphon.android.track.api.ITrackNode
 
-class TrackSampleListActivity : AppCompatActivity(), ITrackNode {
+
+class TrackSampleListActivity : AppCompatActivity(), IPageTrackNode {
     private val dataList = arrayOf(
         SimplePostItem(
             "毛衣",
@@ -55,8 +62,12 @@ class TrackSampleListActivity : AppCompatActivity(), ITrackNode {
 
     private fun initView() {
         val recyclerView = findViewById<RecyclerView>(R.id.goodsRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = SimpleListAdapter()
+    }
+
+    override fun getHiredMapping(): Map<String, String>? {
+        return null
     }
 
     override fun getParentNode(): ITrackNode? {
@@ -68,12 +79,18 @@ class TrackSampleListActivity : AppCompatActivity(), ITrackNode {
     }
 
     override fun injectTrackArguments(arguments: TrackArguments) {
-        arguments.putArgument(TrackConstant.KEY_PAGE_NAME, "TrackSampleList")
+        arguments.putArgument(TrackConstant.KEY_PAGE_NAME, "Track Sample List")
     }
 
     inner class SimpleListAdapter: RecyclerView.Adapter<SimpleViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleViewHolder {
-            return SimpleViewHolder(View.inflate(this@TrackSampleListActivity, R.layout.track_item_list_posts, null))
+            return SimpleViewHolder(
+                LayoutInflater.from(parent.getContext()).inflate(
+                    R.layout.track_item_list_posts,
+                    parent,
+                    false
+                )
+            )
         }
 
         override fun onBindViewHolder(holder: SimpleViewHolder, position: Int) {
@@ -88,7 +105,7 @@ class TrackSampleListActivity : AppCompatActivity(), ITrackNode {
 
     class SimpleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), IDataTrack {
         private var postTextView: TextView? = null
-        private var postImage: View? = null
+        private var postImage: FrameLayout? = null
         private var postInfo: SimplePostItem? = null
 
         init {
@@ -104,12 +121,13 @@ class TrackSampleListActivity : AppCompatActivity(), ITrackNode {
 
             itemView.setOnClickListener {
                 itemView.trackEvent("click_detail")
-//                val context = itemView.context
-//                val intent = Intent(context, TrackSampleDetailsActivity::class.java)
-//                context.startActivity(intent)
-
-//                val intent = Intent()
-//                intent.setHiredTrackNode(this)
+                val context = itemView.context
+                val intent = Intent(context, TrackSampleDetailsActivity::class.java)
+                intent.setHiredTrackNode(it)
+                intent.putExtra("color", postInfo!!.color)
+                intent.putExtra("name", postInfo!!.name)
+                intent.putExtra("type", postInfo!!.type)
+                context.startActivity(intent)
             }
 
             postImage?.setOnClickListener {

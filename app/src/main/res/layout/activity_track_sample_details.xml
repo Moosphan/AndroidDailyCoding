@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".track.pages.TrackSampleDetailsActivity">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/detailPosterContainer"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
+    <TextView
+        android:id="@+id/detailGoodTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:textColor="@color/black"
+        android:layout_margin="20dp"
+        tools:text="商品标题"/>
+    <TextView
+        android:id="@+id/detailGoodType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#676767"
+        android:layout_marginStart="20dp"
+        tools:text="商品类型"/>
+</LinearLayout>

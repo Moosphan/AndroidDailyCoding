@@ -1,4 +1,4 @@
-package com.moosphon.android.track
+package com.moosphon.android.track.api
 
 /**
  * Track node to realize page data tracking.
@@ -9,5 +9,5 @@ interface IPageTrackNode: ITrackNode {
     /**
      * 获取当前节点与雇佣节点的参数映射表
      */
-    fun getHiredMapping(): Map<String, String>
+    fun getHiredMapping(): Map<String, String>?
 }
