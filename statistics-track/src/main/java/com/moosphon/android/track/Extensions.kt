@@ -90,7 +90,8 @@ fun Intent.setHiredTrackNode(view: View) {
 }
 
 fun Intent.getHiredTrackNode(): ITrackNode? {
-    val previousExtras = this.getSerializableExtra("trackNode") as HashMap<String, *>
+    val previousExtras: HashMap<String, *> = this.getSerializableExtra("trackNode") as HashMap<String, *>?
+        ?: return null
     return object : ITrackNode {
         override fun getParentNode(): ITrackNode? {
             return null

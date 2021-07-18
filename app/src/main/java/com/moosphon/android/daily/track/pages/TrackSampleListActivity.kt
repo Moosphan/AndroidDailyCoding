@@ -8,19 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.moosphon.android.daily.R
 import com.moosphon.android.daily.track.constant.TrackConstant
-import com.moosphon.android.track.*
+import com.moosphon.android.track.TrackArguments
 import com.moosphon.android.track.api.IDataTrack
-import com.moosphon.android.track.api.IPageTrackNode
-import com.moosphon.android.track.api.ITrackNode
+import com.moosphon.android.track.setHiredTrackNode
+import com.moosphon.android.track.trackEvent
+import com.moosphon.android.track.trackModel
 
 
-class TrackSampleListActivity : AppCompatActivity(), IPageTrackNode {
+class TrackSampleListActivity : AbsDataTrackActivity() {
     private val dataList = arrayOf(
         SimplePostItem(
             "毛衣",
@@ -64,18 +63,6 @@ class TrackSampleListActivity : AppCompatActivity(), IPageTrackNode {
         val recyclerView = findViewById<RecyclerView>(R.id.goodsRecyclerView)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = SimpleListAdapter()
-    }
-
-    override fun getHiredMapping(): Map<String, String>? {
-        return null
-    }
-
-    override fun getParentNode(): ITrackNode? {
-        return null
-    }
-
-    override fun getHiredNode(): ITrackNode? {
-        return null
     }
 
     override fun injectTrackArguments(arguments: TrackArguments) {
