@@ -4,11 +4,17 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.FrameLayout
 import android.widget.TextView
+import com.moosphon.android.daily.BuildConfig
 import com.moosphon.android.daily.R
 import com.moosphon.android.daily.track.constant.TrackConstant
 import com.moosphon.android.track.TrackArguments
 import com.moosphon.android.track.trackEvent
 
+/**
+ * 模拟商品详情页面埋点场景
+ * @author Moosphon
+ * @date 2021/07/19
+ */
 class TrackSampleDetailsActivity : AbsDataTrackActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

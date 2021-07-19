@@ -18,7 +18,11 @@ import com.moosphon.android.track.setHiredTrackNode
 import com.moosphon.android.track.trackEvent
 import com.moosphon.android.track.trackModel
 
-
+/**
+ * 模拟商品列表页面埋点场景
+ * @author Moosphon
+ * @date 2021/07/19
+ */
 class TrackSampleListActivity : AbsDataTrackActivity() {
     private val dataList = arrayOf(
         SimplePostItem(

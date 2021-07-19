@@ -1,0 +1,34 @@
+
+android {
+    applicationVariants.all { variant ->
+        // 目标输出路径
+        def finalOutputPath = ((project.name != "app") ? project.name : rootProject.name.replace(" ", "")) +
+                "_" + variant.flavorName +
+                "_" + variant.buildType.name +
+                "_" + variant.versionName +
+                "_" + new Date().format('yyyyMMddhhmm') + ".apk"
+        // 相当于路径 app/channelOutput/
+        def path = "../../../../../channelOutput/"
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                //指定路径输出
+                output.outputFileName = new File(path, finalOutputPath)
+            }
+        }
+//    // 在打包完成后还可以做一些别的操作，可以复制到指定目录，或者移动文件到指定目录
+//    variant.assemble.doLast {
+//        File out = new File("${project.rootDir}/apk")
+//        variant.outputs.forEach { file ->
+//            //复制apk到指定文件夹
+//            //copy {
+//            //	from file.outputFile
+//            //	into out
+//            //}
+//            //把文件移动到指定文件夹
+//            ant.move file: file.outputFile,
+//                    todir: "${project.rootDir}/apk"
+//        }
+//    }
+    }
+}

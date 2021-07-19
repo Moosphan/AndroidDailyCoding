@@ -3,6 +3,10 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
 }
+apply from: rootProject.file('app/channelPackingV1.gradle')
+
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(rootProject.file("app/keystore.properties")))
 
 android {
     compileSdkVersion 30
@@ -18,10 +22,68 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debug {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['keystoreFile'])
+            storePassword keystoreProperties['keystorePassword']
+        }
+    }
+
+    // Specifies one flavor dimension.
+    flavorDimensions 'channel'
+
+    productFlavors {
+        xiaomi {
+            dimension 'channel'
+            manifestPlaceholders = [CHANNEL_VALUE: 'xiaomi']
+        }
+        vivo {
+            dimension 'channel'
+            manifestPlaceholders = [CHANNEL_VALUE: 'vivo']
+        }
+        huawei {
+            dimension 'channel'
+            manifestPlaceholders = [CHANNEL_VALUE: 'huawei']
+        }
+        yingyongbao {
+            dimension 'channel'
+            manifestPlaceholders = [CHANNEL_VALUE: 'yingyongbao']
+        }
+        oppo {
+            dimension 'channel'
+            manifestPlaceholders = [CHANNEL_VALUE: 'oppo']
+        }
+        baidu {
+            dimension 'channel'
+            manifestPlaceholders = [CHANNEL_VALUE: 'baidu']
+        }
+        meizu {
+            dimension 'channel'
+            manifestPlaceholders = [CHANNEL_VALUE: 'meizu']
+        }
+        wandoujia {
+            dimension 'channel'
+            manifestPlaceholders = [CHANNEL_VALUE: 'wandoujia']
+        }
+        google {
+            dimension 'channel'
+            manifestPlaceholders = [CHANNEL_VALUE: 'google']
+        }
+    }
+
     buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
