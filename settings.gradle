@@ -1,3 +1,8 @@
+include ':jetpack-hilt'
+include ':kt-coroutines'
+include ':kt-taste'// 渠道信息提取工具库
+include ':cellpacking-library'
+// 责任链埋点工具库
 include ':statistics-track'
 //include ':gradle-plugin'// gradle系列专题基础训练
 include ':gradle-topic'

@@ -4,14 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMain"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        />
 
     <TextView
         android:id="@+id/trackButton"
         android:layout_width="match_parent"
         android:layout_height="52dp"
+        android:background="@drawable/btn_selector"
         android:text="责任链埋点实战"
         android:layout_margin="20dp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
 </LinearLayout>
