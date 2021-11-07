@@ -23,5 +23,15 @@
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="18sp" />
+    <TextView
+            android:id="@+id/binderButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/btn_selector"
+            android:text="Binder机制"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
 </LinearLayout>

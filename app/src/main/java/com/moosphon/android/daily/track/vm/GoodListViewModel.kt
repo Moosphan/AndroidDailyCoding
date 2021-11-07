@@ -35,7 +35,7 @@ class GoodListViewModel: ViewModel() {
     }
 
     fun onGoodChange(id: String, type: String) {
-        val updateList = deepCopyList(_goodList.value)
+        val updateList = deepCopyList(_goodList.value).toMutableList()
         updateList.find { id == it.id }?.let {
             it.type = type
         }

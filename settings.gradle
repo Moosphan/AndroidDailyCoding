@@ -9,3 +9,5 @@ include ':gradle-topic'
 // 壳工程
 include ':app'
 rootProject.name = "AndroidDailyLearning"
+include ':binder-taste'
+include ':binder-taste'

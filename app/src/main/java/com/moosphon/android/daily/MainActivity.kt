@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.binder.client.ClientSampleActivity
 import com.moosphon.android.cellpacking.library.ChannelReader
 import com.moosphon.android.daily.databinding.ActivityMainBinding
 import com.moosphon.android.daily.extension.viewBinding
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         mainBinding.trackButton.setOnClickListener {
             startActivity(Intent(this@MainActivity, TrackSampleListActivity::class.java))
         }
+        mainBinding.binderButton.setOnClickListener {
+            startActivity(Intent(this@MainActivity, ClientSampleActivity::class.java))
+        }
     }
 
     /**
@@ -35,6 +39,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initToolBar() {
-        toolbarMain.title = getString(R.string.app_name) + ChannelReader.getChannelFromMetadata(this)
+        //toolbarMain.title = getString(R.string.app_name) + ChannelReader.getChannelFromMetadata(this)
     }
 }
