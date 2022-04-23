@@ -1,0 +1,1 @@
+/Users/moos/github/AndroidDailyCoding/buildSrc/build/classes/kotlin/main/Dependencies.class:/Users/moos/github/AndroidDailyCoding/buildSrc/build/classes/kotlin/main/Versions.class

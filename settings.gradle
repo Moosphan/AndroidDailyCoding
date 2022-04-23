@@ -1,3 +1,4 @@
+
 include ':jetpack-hilt'
 include ':kt-coroutines'
 include ':kt-taste'// 渠道信息提取工具库
@@ -11,3 +12,7 @@ include ':app'
 rootProject.name = "AndroidDailyLearning"
 include ':binder-taste'
 include ':binder-taste'
+// 单元测试、集成测试
+include ':test-sample'
+// 版本管理插件
+includeBuild('version-plugin')

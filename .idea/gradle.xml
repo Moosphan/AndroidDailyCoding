@@ -4,7 +4,19 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/version-plugin" name="version-plugin">
+                <projects>
+                  <project path="$PROJECT_DIR$/version-plugin" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="testRunner" value="PLATFORM" />
+        <option name="disableWrapperSourceDistributionNotification" value="true" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="1.8" />
@@ -12,8 +24,16 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/binder-taste" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/cellpacking-library" />
             <option value="$PROJECT_DIR$/gradle-topic" />
+            <option value="$PROJECT_DIR$/jetpack-hilt" />
+            <option value="$PROJECT_DIR$/kt-coroutines" />
+            <option value="$PROJECT_DIR$/kt-taste" />
             <option value="$PROJECT_DIR$/statistics-track" />
+            <option value="$PROJECT_DIR$/test-sample" />
+            <option value="$PROJECT_DIR$/version-plugin" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
